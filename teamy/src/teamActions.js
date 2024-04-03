@@ -1,7 +1,7 @@
 import * as types from './teamConstants';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5500/api/teams';
+const BASE_URL = 'https://teamy-api.onrender.com/api/teams';
 
 export const listTeams = () => async (dispatch) => {
   try {
