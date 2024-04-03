@@ -24,6 +24,7 @@ const listUsers = (
   filterDomain = '',
   filterAvailability = null
 ) => async (dispatch, getState) => {
+  console.log("List User");
   try {
     dispatch({ type: USER_LIST_REQUEST });
 
@@ -44,6 +45,7 @@ const listUsers = (
 };
 
 const createUser = ({ first_name, last_name, email, gender, avatar, domain, available }) => async (dispatch, getState) => {
+  console.log("Create User");
   dispatch({ type: USER_CREATE_REQUEST, payload: { first_name, last_name, email, gender, avatar, domain, available } });
   try {
     const { data } = await Axios.post(BASE_URL, {
@@ -62,6 +64,7 @@ const createUser = ({ first_name, last_name, email, gender, avatar, domain, avai
 };
 
 const updateUser = ({ userId, first_name, last_name, email, gender, avatar, domain, available }) => async (dispatch, getState) => {
+  console.log("Update User");
   dispatch({ type: USER_UPDATE_REQUEST, payload: { userId, first_name, last_name, email, gender, avatar, domain, available } });
   try {
     const { data } = await Axios.put(`${BASE_URL}/${userId}`, {
@@ -80,6 +83,8 @@ const updateUser = ({ userId, first_name, last_name, email, gender, avatar, doma
 };
 
 const deleteUser = (userId) => async (dispatch, getState) => {
+
+  console.log("Delete User");
   try {
     dispatch({ type: USER_DELETE_REQUEST });
     await Axios.delete(`${BASE_URL}/${userId}`);
