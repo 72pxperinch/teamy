@@ -116,8 +116,6 @@ function UsersScreen(props) {
     setSelectedUsers([]);
 
     setShowTeamForm(false);
-
-    window.location.reload();
   };
 
   const toggleTeamDetailsOverlay = (teamId) => {
@@ -146,7 +144,6 @@ function UsersScreen(props) {
   const deleteHandler = (userId) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       dispatch(deleteUser(userId));
-      window.location.reload();
     }
   };
   const editHandler = (userEdit) => {
@@ -192,8 +189,6 @@ function UsersScreen(props) {
       available: '',
       avatar: '',
     });
-
-    window.location.reload();
   };
 
   const toggleAddUserForm = (team) => {
