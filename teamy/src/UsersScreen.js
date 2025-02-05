@@ -7,7 +7,7 @@ import {
   createUser,
 } from './userActions';
 import {
-  createTeam, listTeams, getTeamDetails
+  createTeam, listTeams, getTeamDetails, deleteTeam
 } from './teamActions';
 
 function UsersScreen(props) {
@@ -130,10 +130,12 @@ function UsersScreen(props) {
       setSelectedUsers([...selectedUsers, userId]);
     }
   };
-
-
-
-
+  
+  const handleDeleteTeam = (id) => {
+    if (window.confirm("Are you sure you want to delete this team?")) {
+      dispatch(deleteTeam(id));
+    }
+  };
 
 
   const toggleUserDetailsOverlay = (user) => {
@@ -255,6 +257,7 @@ function UsersScreen(props) {
               <td>{team.userCount}</td>
               <td>
                 <button onClick={() => toggleTeamDetailsOverlay(team._id)}>View</button>
+                <button onClick={() => handleDeleteTeam(team._id)}>Delete</button>
               </td>
             </tr>
           ))}

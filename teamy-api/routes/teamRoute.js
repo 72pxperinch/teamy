@@ -1,5 +1,4 @@
 import express from 'express';
-import User from '../models/userModel.js';
 import Team from '../models/teamModel.js';
 
 const router = express.Router();
@@ -56,5 +55,20 @@ router.get('/:id', async (req, res) => {
     res.status(500).send({ message: 'Server Error' });
   }
 });
+
+router.delete('/:id', async (req, res) => { 
+  console.log("Team Delete ID request triggered");
+  try {
+    const team = await Team.findByIdAndDelete(req.params.id);
+    if (!team) {
+      return res.status(404).send({ message: 'Team not found' });
+    }
+    res.send({ message: 'Team deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Server Error' });
+  }
+});
+
 
 export default router;

@@ -26,6 +26,19 @@ export const teamCreateReducer = (state = {}, action) => {
   }
 };
 
+export const teamDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case types.TEAM_DELETE_REQUEST:
+      return { loading: true };
+    case types.TEAM_DELETE_SUCCESS:
+      return { loading: false, success: true, team: action.payload };
+    case types.TEAM_DELETE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
 export const teamDetailsReducer = (state = { team: { users: [] } }, action) => {
   switch (action.type) {
     case types.TEAM_DETAILS_REQUEST:

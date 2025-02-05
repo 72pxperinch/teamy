@@ -10,6 +10,7 @@ import {
 import {
   teamListReducer,
   teamCreateReducer,
+  teamDeleteReducer,
   teamDetailsReducer,
 } from './teamReducers';
 
@@ -20,6 +21,7 @@ const reducer = {
   userDelete: userDeleteReducer,
   teamList: teamListReducer,
   teamCreate: teamCreateReducer,
+  teamDelete: teamDeleteReducer,
   teamDetails: teamDetailsReducer,
 };
 

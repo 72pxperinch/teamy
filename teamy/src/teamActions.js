@@ -1,7 +1,7 @@
 import * as types from './teamConstants';
 import axios from 'axios';
 
-const BASE_URL = 'https://teamy-api.onrender.com/api/teams';
+const BASE_URL = 'http://localhost:5500/api/teams';
 
 export const listTeams = () => async (dispatch) => {
   try {
@@ -57,6 +57,27 @@ export const getTeamDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: types.TEAM_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const deleteTeam = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: types.TEAM_DELETE_REQUEST });
+
+    await axios.delete(`${BASE_URL}/${id}`);
+
+    dispatch({
+      type: types.TEAM_DELETE_SUCCESS,
+      payload: id,
+    });
+  } catch (error) {
+    dispatch({
+      type: types.TEAM_DELETE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
