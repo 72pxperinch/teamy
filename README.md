@@ -1,4 +1,4 @@
-# TAEMY
+# TEAMY
 
 ## Info
 Simple team building app.
