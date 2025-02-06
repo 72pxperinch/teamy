@@ -7,11 +7,14 @@ import userRoute from './routes/userRoute.js';
 import teamRoute from './routes/teamRoute.js';
 
 import cors from 'cors';
-const corsOptions ={
-    origin:'*', 
-    credentials:true,       
-    optionSuccessStatus:200
-}
+const corsOptions = {
+  origin: 'https://teamy.72pxperinch.in', 
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+};
+app.use(cors(corsOptions));
+
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -45,7 +48,6 @@ mongoose.connect(mongodbUrl, {
 const app = express();
 
 
-app.use(cors(corsOptions));
 
 
 app.use(bodyParser.json());
