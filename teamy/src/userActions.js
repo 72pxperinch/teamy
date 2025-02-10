@@ -14,7 +14,7 @@ import {
   USER_DELETE_FAIL
 } from "./userConstants";
 
-const BASE_URL = "http://localhost:5500/api/users";
+const BASE_URL = "https://teamy-nine.vercel.app/api/users";
 
 const listUsers = (
   pageNumber = 1,
