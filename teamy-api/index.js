@@ -7,12 +7,11 @@ import userRoute from './routes/userRoute.js';
 import teamRoute from './routes/teamRoute.js';
 
 import cors from 'cors';
-const corsOptions = {
-  origin: 'https://teamy.72pxperinch.in', 
-  credentials: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
-};
+const corsOptions ={
+  origin:'*', 
+  credentials:true,       
+  optionSuccessStatus:200
+}
 app.use(cors(corsOptions));
 
 
